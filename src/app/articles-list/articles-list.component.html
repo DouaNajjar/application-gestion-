@@ -1,0 +1,45 @@
+<div class="container">
+  <div>
+    <input type="text" class="form-control" #titre />
+    <button
+      type="submit"
+      class="btn btn-primary"
+      (click)="chercher(titre.value)"
+    >
+      Chercher
+    </button>
+  </div>
+
+  <ul>
+    @for (article of Articles) {
+    <div class="row g-0">
+      <div class="col-md-4">
+        <img
+          [src]="article.photo"
+          class="img-fluid rounded-start"
+          alt="Article image"
+        />
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <p class="card-text">{{ article.titre }}</p>
+          <p class="card-text">{{ article.description }}</p>
+          <p class="card-text">{ article.date}}</p>
+          <p class="card-text">Score: {{ article.score }}</p>
+
+          <button class="btn btn-success me-2" (click)="up(article)">Up</button>
+          <button class="btn btn-danger" (click)="down(article)">Down</button>
+        </div>
+      </div>
+    </div>
+    }
+  </ul>
+  <div class="container">
+    <button class="btn btn-success mb-3" (click)="changeAction('add')">
+      Ajouter un Article
+    </button>
+    @if (action === "add") {
+    <app-add-article (articleajouté)="ajoutArticle($event)"></app-add-article>
+    }
+  </div>
+</div>

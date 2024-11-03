@@ -1,0 +1,39 @@
+<p>article-add works!</p>
+<form id="addForm">
+  <div class="mb-3">
+    <label for="title" class="form-label">Titre</label>
+    <input type="text" class="form-control" id="titre" #titre />
+  </div>
+  <div class="mb-3">
+    <label for="author" class="form-label">photo</label>
+    <input type="text" class="form-control" id="photo" #photo />
+  </div>
+  <div class="mb-3">
+    <label for="date" class="form-label">Date de publication</label>
+    <input type="text" class="form-control" id="date" #date />
+  </div>
+  <div class="mb-3">
+    <label for="description" class="form-label">Description</label>
+    <input type="text" class="form-control" id="description" #description />
+  </div>
+  <div class="mb-3">
+    <label for="score" class="form-label">Score</label>
+    <input type="number" class="form-control" id="score" #score />
+  </div>
+  <button
+    type="button"
+    id="btnValidAdd"
+    class="btn btn-primary"
+    (click)="
+      ajoutArticle(
+        titre.value,
+        photo.value,
+        date.value,
+        description.value,
+        +score.value
+      )
+    "
+  >
+    Ajouter
+  </button>
+</form>
